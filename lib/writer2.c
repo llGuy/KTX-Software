@@ -55,6 +55,12 @@
  */
 
 #if defined(_WIN32) || defined(linux) || defined(__linux) || defined(__linux__) || defined(__EMSCRIPTEN__)
+size_t strnlen(const char *s, size_t max_len)
+{
+    size_t i = 0;
+    for(; (i < max_len) && s[i]; ++i);
+    return i;
+}
 /** @internal
  * @~English
  * @brief strnstr for Windows, Linux and Emscripten.
